@@ -149,21 +149,14 @@ function multiplyAnyArray(dynamicArray) {
 
   let result = 1;
 
-  while (dynamicArray.length > 1) {
-    let a = dynamicArray.splice(0, 1)[0];
-    let b = dynamicArray.splice(0, 1)[0];
-    console.log(a, b);
-    result *= multiply(a, b)[0];
+  for (let i = 0; i < dynamicArray.length; i++) {
+    result = multiply(result, dynamicArray[i])[0];
   }
-
-  result *= multiply(dynamicArray[0], 1)[0];
 
   const string = `The numbers ${dynamicArray} have a product of ${result}.`;
 
   return [result, string];
 }
-
-console.log(multiplyAnyArray(testDynamicArray));
 
 // Here is the test for multiplyArray(); uncomment it to run it
 testMultiplyAnyArray(testDynamicArray);
